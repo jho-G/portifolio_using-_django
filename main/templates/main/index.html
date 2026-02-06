@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yohannes Girma | Portfolio</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="logo">Simple Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="home">
+    <div class="home-info">
+      <h1>Hi, I'm <span>Yohannes Girma</span></h1>
+      <h2>Computer Science and Engineering Student</h2>
+      <p>Computer Science and Engineering student | Django Backend Developer | Building real-world projects with Django & DRF | Learning databases, deployment, and React | Open to internships and junior roles</p>
+
+      <div class="btn-csi">
+        <a href="#" class="btn">Download CV</a>
+        <div class="sci">
+          <a href="https://github.com/jho-G" class="icon icon-github" aria-label="GitHub">
+            <span class="icon-inner">GH</span>
+          </a>
+          <a href="https://www.linkedin.com/in/yohannes-girma-dev/" class="icon icon-linkedin" aria-label="LinkedIn">
+            <span class="icon-inner">in</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-img">
+      <img src="{% static 'images/jo.jpg' %}" alt="Yohannes Profile" />
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I’m a CSE student and backend developer focused on building scalable web applications using Django and Django REST Framework. I enjoy turning ideas into real-world projects, solving problems, and learning new technologies. Currently expanding my skills in databases, deployment, and frontend integration.</p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+      {% comment %} Example static projects, can be dynamic later {% endcomment %}
+      <div class="project-card">
+        <h3>Blog App</h3>
+        <p>A Django-based blog app with full CRUD functionality and admin panel.</p>
+        <a href="#" class="btn">View</a>
+      </div>
+      <div class="project-card">
+        <h3>Todo App</h3>
+        <p>Simple task manager built with Django and Bootstrap UI.</p>
+        <a href="#" class="btn">View</a>
+      </div>
+    </div>
+    <br>
+    <a href="#skills" class="btn">View skills</a>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python / Django</li>
+      <li>HTML / CSS</li>
+      <li>SQL / Database Design</li>
+    </ul>
+  </section>
+
+  <!-- In your contact section -->
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  
+  <!-- Add this to show messages -->
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  
+  <!-- Update form action to empty string (current page) -->
+  <form method="POST" action="">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+  <footer>
+    <p>© 2025 Yohannes Girma | All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

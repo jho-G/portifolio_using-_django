@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: portfolio-yohannes
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn portifolio_site.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+    healthCheckPath: /
