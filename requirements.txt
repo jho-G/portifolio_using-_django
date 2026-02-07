@@ -5,3 +5,5 @@ psycopg2-binary==2.9.6
 python-dotenv==1.0.0
 Pillow==10.4.0
 dj-database-url==2.0.0
+# Email packages (choose one)
+django-sendgrid-v5==0.8.1  # OR just sendgrid
